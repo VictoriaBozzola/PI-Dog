@@ -33,6 +33,22 @@ module.exports = (sequelize) => {
       allowNull: true,
 
     },
+
+    image: {
+      type: DataTypes.STRING, 
+      allowNull: true,
+    },
+
+    temperament: {
+      type: DataTypes.STRING, 
+      allowNull: true,
+    },
+
+    origin: {
+      type: DataTypes.STRING, 
+      allowNull: true,
+    },
+
     createdInDb: {           //para distinguir entre los que me trae la api y los creados en la base de datos
       type: DataTypes.BOOLEAN,
       allowNull: false,
