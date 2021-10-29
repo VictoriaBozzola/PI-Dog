@@ -35,7 +35,7 @@ const getApi = async () => {
 router.get('/', async (req, res, next) => {
     
    try {
-    const {name, temperament} = req.query;
+    const {name} = req.query;
     if(!name){
         const api = await getApi();
         const db = await getDB();
@@ -68,30 +68,6 @@ router.get('/', async (req, res, next) => {
 
 });
 
-router.get('/', async (req, res, next) => {
-    
-    try {
-     const {temperament} = req.query;
-     if(temperament){
-        const api = await getApi();
-        const tempQuery = await api.filter(data => data.temperament.includes(temperament))
-        const db = await Dog.findAll({
-            where: {
-                temperament: {
-                    [Op.iLike]: '%' + temperament + '%'
-                }
-            }
-        })
-        const infoTotal = tempQuery.concat(db);
-        res.send(infoTotal.length? infoTotal : 'Temperament dog not found')
-     }   
-     
- } catch(err){
-     
-     next(err);
- }
- 
- });
 
 router.post('/', async (req, res, next) => {
     try{
