@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {ADD_DOG, ALL_DOGS, GET_DETAILS, GET_TEMPERAMENTS, GET_QUERY} from './types';
+import {ADD_DOG, ALL_DOGS, GET_DETAILS, GET_TEMPERAMENTS, GET_QUERY, FILTER_TEMP, FILTER_BREED, PAGINADO_D, PAGINADO_I} from './types';
 
 export function getDogs () {
     return async function(dispatch){
@@ -9,15 +9,13 @@ export function getDogs () {
         payload: infoDogs.data
         
          })
-
-         
-         
+     
     }
 }
 
 
 
-export function addDog(creado){
+export function addDog(creado){ // cambiar a name, life_san, height, etc
     return {
         type: ADD_DOG,
         payload: {
@@ -63,5 +61,30 @@ export function getName(name) {
     }   
 }
 
+export function filterByTemperament(temperament){
+    console.log(temperament);
+    return async function (dispatch){
+        const query = await axios.get(`http://localhost:3001/api/dogs?temperament=${temperament}`)
+        dispatch ({
+            type: FILTER_TEMP,
+            payload: query.data,
+        })
+    }   
+}
 
+export function filterByBreed(value){
+
+}
+
+export function paginadoD(){
+    return {
+        type: PAGINADO_D,
+    }
+}
+
+export function paginadoI(){
+    return {
+        type: PAGINADO_I,
+    }
+}
 

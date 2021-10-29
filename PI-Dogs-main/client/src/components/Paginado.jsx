@@ -3,7 +3,7 @@ import React from 'react';
 export default function Paginado({dogxPage, allDogs, paginado}){
     const numPaginas = [];
 
-    for(let i = 0; i <= Math.ceil(allDogs/dogxPage); i++){   //todos mis perros dividido por los que quiero por pagina
+    for(let i = 0; i <= Math.floor(allDogs/dogxPage); i++){   //todos mis perros dividido por los que quiero por pagina
         numPaginas.push(i+1);                                 // cuantas paginas vamos a tener
     }
 

@@ -16,6 +16,8 @@ const getApi = async () => {
                 weight: response.weight.metric.split("-"),
                 height: response.height.metric.split("-"),
                 temperament: response.temperament,
+                // Temperaments: dog.temperament?.split(', ').map(t=> { 
+                //     return{ name: t}})
                 origin: response.origin,
                 
 
@@ -33,13 +35,16 @@ const getApi = async () => {
 router.get('/', async (req, res, next) => {
     
    try {
-    const {name} = req.query;
+    const {name, temperament} = req.query;
     if(!name){
         const api = await getApi();
         const db = await getDB();
         const infoTotal = api.concat(db);
         res.send(infoTotal.length? infoTotal : 'Api not found')
-    }   else {
+    }   
+    
+    if(name) {
+       
         const api = await getApi();
         const nameQuery = await api.filter(data => data.name.toLowerCase().includes(name.toLowerCase()))
         const db = await Dog.findAll({
@@ -52,7 +57,10 @@ router.get('/', async (req, res, next) => {
         })
         const infoTotal = nameQuery.concat(db);
         res.send(infoTotal.length? infoTotal : 'Name dog not found')
-    }
+         
+        
+    } 
+
 } catch(err){
     
     next(err);
@@ -60,7 +68,30 @@ router.get('/', async (req, res, next) => {
 
 });
 
-
+router.get('/', async (req, res, next) => {
+    
+    try {
+     const {temperament} = req.query;
+     if(temperament){
+        const api = await getApi();
+        const tempQuery = await api.filter(data => data.temperament.includes(temperament))
+        const db = await Dog.findAll({
+            where: {
+                temperament: {
+                    [Op.iLike]: '%' + temperament + '%'
+                }
+            }
+        })
+        const infoTotal = tempQuery.concat(db);
+        res.send(infoTotal.length? infoTotal : 'Temperament dog not found')
+     }   
+     
+ } catch(err){
+     
+     next(err);
+ }
+ 
+ });
 
 router.post('/', async (req, res, next) => {
     try{
