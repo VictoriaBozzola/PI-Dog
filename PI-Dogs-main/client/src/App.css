@@ -7,6 +7,11 @@
   pointer-events: none;
 }
 
+.botonComienzo{
+  background-color: #862FED;
+  border: solid 1px #862FED
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

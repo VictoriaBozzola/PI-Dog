@@ -40,10 +40,9 @@ const initialState = {
                 dogs: action.payload, 
             }
         case FILTER_TEMP: 
-            
-            const filter = action.payload === 'Temperamentos' ? state.dogs : state.dogs?.filter(data => {
-            if(data.temperament?.includes(action.payload)) return data
-            });
+            //sobre el nuevo array donde cargue a todos hago el filtro y se lo paso a dogs, para evitar que te haga filtros
+            //sobre filtros
+            const filter = action.payload === 'Temperamentos' ? state.filterTemp : state.filterTemp?.filter(data => data.temperament?.includes(action.payload));
             return{
                 ...state,
                 dogs: filter,

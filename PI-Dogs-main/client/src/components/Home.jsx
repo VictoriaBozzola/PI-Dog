@@ -7,6 +7,8 @@ import Card from './Card';
 import SearchBar from './SearchBar';
 import Temperaments from "./Temperaments";
 import Paginado from './Paginado'
+import './Home.css'
+
 
 export default function Home() {
     
@@ -14,7 +16,7 @@ export default function Home() {
     const allDogs = useSelector((state) => state.dogs);
     console.log('allDogs',allDogs);
     
-    useEffect(() => {
+    useEffect(() => {           //despacha la acción, espera la info 
         dispatch(getDogs()); 
         dispatch(getTemperaments());
         console.log('DENTRO DEL USE', allDogs)
@@ -35,12 +37,6 @@ export default function Home() {
     const paginado = (pageNumber) => {
         setActualPage(pageNumber);
     }
-
-    //cuando obtenemos toda la info (aca conecta la action, con el reducer y el front)
-     //para que no se genere el loop infinito     
-    
-    console.log("DESPUES del useEffect", allDogs)
-
  
 
     function handleClick(e){
@@ -51,8 +47,8 @@ export default function Home() {
     
 
     return (
-        <div>
-            <h1>¡Dogs!</h1>
+        <div className='contenedorAll'>
+            <h1>DOGGER</h1>
             <SearchBar/>
             <Link to='/dogs'><button>Crear raza</button></Link>
             <button onClick={(e) => {handleClick(e)}}> Volver a todos los perros </button>
@@ -77,16 +73,17 @@ export default function Home() {
             </div>
             <Paginado dogxPage={dogxPage} allDogs={length} 
             paginado={paginado}/>   
-            
+            <div className='contenedorcard'>
             {    
                 totalPageDog?.map(elemento => {
                 return (
-                <div key={'a'+ elemento.id}>
+                
                     <Card key={elemento.id} id={elemento.id} name={elemento.name} image={elemento.image} 
                     temperament={elemento.temperament} weight={elemento.weight}/>
-                </div>
+                
                )})
             }
+            </div>
         </div>
     )
 };

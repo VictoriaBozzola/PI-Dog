@@ -71,7 +71,10 @@ export function filterByTemperament(temperament){
 }
 
 export function filterByBreed(value){
-
+    return {
+        type: FILTER_BREED,
+        payload: value,
+    }
 }
 
 

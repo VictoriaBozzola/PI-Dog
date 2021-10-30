@@ -1,0 +1,40 @@
+.cards{
+    background: linear-gradient(rgba(255, 255, 255, 0.356), rgba(255, 255, 255, 0.027));
+    margin:1em auto;
+    max-width: 200px;
+    padding:1em;
+    border-radius: 0.5em;
+    transition: all 0.3s
+
+
+}
+
+.cards:hover{
+    transform: translate(0, -10px)
+}
+.cards h3{
+    margin: 0em;
+    padding-bottom:0.5em;
+    color: #5f4920;
+
+}
+.cards img {
+    border-radius: 20em;
+    border: solid 2px white;
+    
+    
+}
+
+.info h4 {
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
+    padding: 0.5em 0em;
+}
+
+.info button {
+    border-style: none;
+    color: white;
+    background: linear-gradient(rgba(255, 136, 0, 0.137), rgb(255, 145, 1));
+    padding: 0.5em;
+    border-radius:0.2em;
+}
