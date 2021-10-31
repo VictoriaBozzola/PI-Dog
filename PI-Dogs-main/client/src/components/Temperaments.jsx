@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector, useDispatch } from 'react-redux';
-import {filterByTemperament, getDogs} from '../actions/actions.js'
+import {filterByTemperament} from '../actions/actions.js'
 
 
 

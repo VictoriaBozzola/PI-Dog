@@ -6,9 +6,10 @@ export default function Card({name, image, temperament, weight, id}){
 
     return(
         <div className='cards'>
-            <h3>{name}</h3>
-           
-            <img src={image} alt= 'dog' width='200px' height='200px'/>
+            <div className='tyf'>
+                <h3>{name}</h3>
+                <img src={image} alt= 'dog' width='200px' height='200px'/>
+            </div>
             <div className='info'>
                 <h4> <strong>Peso</strong> </h4> 
                 <p> {weight[0]} a {weight[1]} kilos</p>

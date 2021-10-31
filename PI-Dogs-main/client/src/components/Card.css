@@ -1,40 +1,61 @@
 .cards{
-    background: linear-gradient(rgba(255, 255, 255, 0.356), rgba(255, 255, 255, 0.027));
+    background: linear-gradient(rgba(255, 255, 255, 0.712), rgba(255, 255, 255, 0.027));
     margin:1em auto;
-    max-width: 200px;
+    max-width: 400px;
     padding:1em;
     border-radius: 0.5em;
-    transition: all 0.3s
-
+    transition: all 0.3s;
+    display: flex;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.226);
 
 }
 
 .cards:hover{
-    transform: translate(0, -10px)
+    transform: translate(0, -25px)
 }
-.cards h3{
+.tyf h3{
     margin: 0em;
-    padding-bottom:0.5em;
+    padding-bottom:1em;
     color: #5f4920;
+    font-size: 1.2em;
+    
 
 }
 .cards img {
-    border-radius: 20em;
+    border-radius: 10em;
     border: solid 2px white;
-    
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.329);
+     
     
 }
 
 .info h4 {
-    border-top: solid 1px white;
-    border-bottom: solid 1px white;
+    border-top: solid 1px #5f4920;
+    border-bottom: solid 1px #5f4920;
     padding: 0.5em 0em;
+    color: #5f4920;
+}
+
+.info p {
+    max-width: 200px;
 }
 
 .info button {
     border-style: none;
     color: white;
-    background: linear-gradient(rgba(255, 136, 0, 0.137), rgb(255, 145, 1));
+    font-size: 1em;
+    background: linear-gradient( #3dc99a, #74d4b436);
     padding: 0.5em;
     border-radius:0.2em;
+    transition: all ease-in .3s;
+}
+
+.info button:hover {
+    
+    background: #3dc99a
+}
+
+.tyf {
+    margin-right: 1.5em;
+    
 }

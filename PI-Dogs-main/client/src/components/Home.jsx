@@ -48,9 +48,11 @@ export default function Home() {
 
     return (
         <div className='contenedorAll'>
-            <h1>DOGGER</h1>
-            <SearchBar/>
-            <Link to='/dogs'><button>Crear raza</button></Link>
+            <div className='navegador'>
+                <h1>DOGGER</h1>
+                <Link to='/dogs'><button>Crear raza</button></Link>
+                <SearchBar/>
+            </div>
             <button onClick={(e) => {handleClick(e)}}> Volver a todos los perros </button>
             <div className='filtros'>
                 <select>

@@ -9,7 +9,7 @@ export default function LandingPage() {
             ¡Conocé más al mejor amigo <br/>
             del hombre! </h1>
             <Link to='/home/'> 
-            <button className='comienzo'><strong> ENTRAR </strong></button>
+            <button className='comienzo'><strong> Comenzar </strong></button>
             </Link>
         </div>
     )
