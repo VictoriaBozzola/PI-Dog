@@ -1,7 +1,12 @@
+
+
 .cards{
-    background: linear-gradient(rgba(255, 255, 255, 0.712), rgba(255, 255, 255, 0.027));
+    font-family: 'Red Hat Display', sans-serif;
+    background: linear-gradient(rgba(255, 255, 255, 0.801), rgba(255, 255, 255, 0.027));
     margin:1em auto;
     max-width: 400px;
+    min-width: 400px;
+
     padding:1em;
     border-radius: 0.5em;
     transition: all 0.3s;
@@ -15,9 +20,11 @@
 }
 .tyf h3{
     margin: 0em;
-    padding-bottom:1em;
+    margin-top: 1em;
     color: #5f4920;
     font-size: 1.2em;
+    
+   
     
 
 }
@@ -47,7 +54,7 @@
     background: linear-gradient( #3dc99a, #74d4b436);
     padding: 0.5em;
     border-radius:0.2em;
-    transition: all ease-in .3s;
+    transition: all ease-in .4s;
 }
 
 .info button:hover {
@@ -57,5 +64,7 @@
 
 .tyf {
     margin-right: 1.5em;
+    padding-top: 1em;
     
 }
+

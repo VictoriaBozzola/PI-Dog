@@ -13,11 +13,9 @@ const getApi = async () => {
                 id: response.id,
                 name: response.name,
                 image: response.image.url,
-                weight: response.weight.metric.split("-"),
+                weight:response.weight.metric.split("-"),
                 height: response.height.metric.split("-"),
                 temperament: response.temperament,
-                // Temperaments: dog.temperament?.split(', ').map(t=> { 
-                //     return{ name: t}})
                 origin: response.origin,
                 
 
@@ -71,14 +69,16 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     try{
-        const {name, height, weight, life_span, image, origin,temperament} = req.body;
+        const {name, height_min, height_max, weight_min, weight_max, life_span, image, origin,temperament} = req.body;
         const createDog = await Dog.create({
 
                 
                 name,
                 life_span,
-                height,
-                weight,
+                height_min,
+                height_max,
+                weight_min,
+                weight_max,
                 image,
                 origin,
                 temperament

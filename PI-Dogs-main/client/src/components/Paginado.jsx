@@ -10,7 +10,7 @@ export default function Paginado({dogxPage, allDogs, paginado}){
 
     return(     //renderiza los numeros del total de las paginas que va a tener 
         <nav>
-            <ul>
+            <ul className='ul'>
                 {numPaginas && numPaginas.map(num => (
                     <li key={num}>
                     <a className='paginado' onClick={() => paginado(num)}><strong> {num} </strong></a>

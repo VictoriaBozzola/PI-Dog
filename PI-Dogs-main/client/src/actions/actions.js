@@ -1,5 +1,8 @@
 import axios from 'axios';
-import {ADD_DOG, ALL_DOGS, GET_DETAILS, GET_TEMPERAMENTS, GET_QUERY, FILTER_TEMP, FILTER_BREED} from './types';
+import {ADD_DOG, ALL_DOGS, GET_DETAILS, GET_TEMPERAMENTS, GET_QUERY, FILTER_TEMP, FILTER_BREED,
+ORDER_WEIGHT, ORDER_AS} from './types';
+
+
 
 export function getDogs () {
     return async function(dispatch){
@@ -13,21 +16,11 @@ export function getDogs () {
     }
 }
 
-
-
-export function addDog(creado){ // cambiar a name, life_san, height, etc
-    return {
-        type: ADD_DOG,
-        payload: {
-                name: creado.name,
-                life_span: creado.life_span,
-                height: creado.height,
-                weight: creado.weight,
-                image: creado.image,
-                origin: creado.image,
-                // temperament   >> traer de la base de datos?? 
-        }
-    }
+export function addDog(payload){ 
+   return async function(dispatch){
+       const created = await axios.post('http://localhost:3001/api/dogs', payload);
+       return created;
+   }
 }
 
 export function getDogDetails (id){
@@ -75,6 +68,23 @@ export function filterByBreed(value){
         type: FILTER_BREED,
         payload: value,
     }
+}
+
+
+export function orderByWeight(value){
+    return {
+        type: ORDER_WEIGHT,
+        payload: value,
+    }
+
+}
+
+export function orderAs(value){
+    return {
+        type: ORDER_AS,
+        payload: value,
+    }
+
 }
 
 

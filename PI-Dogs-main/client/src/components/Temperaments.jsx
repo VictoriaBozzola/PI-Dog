@@ -4,13 +4,14 @@ import {filterByTemperament} from '../actions/actions.js'
 
 
 
-export default function Temperaments(){
+export default function Temperaments({pagina}){
     const allTemperament = useSelector((state) => state.temperaments);
     const dispatch = useDispatch();
     
     
     function onInputChange(e){
-       
+        e.preventDefault();
+        pagina(1);
         dispatch(filterByTemperament(e.target.value))
         
     }

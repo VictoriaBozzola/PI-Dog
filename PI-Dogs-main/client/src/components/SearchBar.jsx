@@ -3,12 +3,13 @@ import {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {getName} from '../actions/actions.js'
 
-export default function SearchBar(){
+export default function SearchBar({pagina}){
     const [search, setSearch] = useState('');
     const dispatch = useDispatch();
 
     function onSubmit(e){
         e.preventDefault();
+        pagina(1);
         dispatch(getName(search))
     }
 
@@ -20,7 +21,7 @@ export default function SearchBar(){
     return(
         <div>
             <form onSubmit={onSubmit}>
-                <input type='text' value={search} onChange={onInputChange}/>
+                <input type='text' placeholder='Buscar...' value={search} onChange={onInputChange}/>
                 <input type='submit' value='Buscar' onSubmit={onSubmit}/>
            </form>
         </div>
