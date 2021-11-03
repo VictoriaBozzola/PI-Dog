@@ -6,7 +6,7 @@ li {
 
 .paginado{
     color: white;
-    background-color: rgba(61, 182, 121, 0.582);
+    background-color: #74d4b4;
     font-family: 'Red Hat Display', sans-serif;
     margin: 0.4em;
     padding: 0.5em;
@@ -19,14 +19,14 @@ li {
 
 .paginado:hover{
     color: white;
-    background: rgba(54, 156, 107, 0.781);
+    background: #79bba5;
    
 
 }
 
 .ul {
     display: flex;
-    margin: 1em auto;
+    margin: 1.5em auto;
     border-top: solid 1px white;
     border-bottom: solid 1px white;
     padding: 1.2em;

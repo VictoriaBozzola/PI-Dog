@@ -56,17 +56,25 @@ export default function Home() {
         <div className='contenedorAll'>
             <div className='navegador'>
                 <h1>DOGGER</h1>
-                <Link to='/create'><button>Crear raza</button></Link>
-                <SearchBar pagina={setActualPage}/>
+                <div className='searchBar'>
+                    <SearchBar pagina={setActualPage}/>
+                </div>
+               
             </div>
-            <button onClick={(e) => {handleClick(e)}}> Volver a todos los perros </button>
+            
             <div className='filtros'>
-                
-                <OrderAlf pagina={setActualPage} set={setOrden}/>
-                <OrderPeso pagina={setActualPage} set={setOrden} />
-                <Temperaments pagina={setActualPage}/>
-                <Breed pagina={setActualPage}/>
-
+                <div className='botonesFiltro'>
+                    <Link to='/create'><button className='crear link'>Crear raza</button></Link>
+                    <button onClick={(e) => {handleClick(e)}} className='crear'> Todos </button>
+                </div>
+                <div>
+                    <OrderAlf pagina={setActualPage} set={setOrden}/>
+                    <OrderPeso pagina={setActualPage} set={setOrden} />
+                    <div className='dosFiltros'>
+                        <Temperaments pagina={setActualPage}/>
+                        <Breed pagina={setActualPage}/>
+                    </div>
+                </div>
             </div>
             <Paginado dogxPage={dogxPage} allDogs={length} 
             paginado={paginado}/>   

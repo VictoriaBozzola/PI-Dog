@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 import {orderAs} from '../actions/actions.js'
-
+import './Filtros.css'
 
 
 export default function OrderAsDes({pagina, set}) {
@@ -18,7 +18,7 @@ export default function OrderAsDes({pagina, set}) {
 
 
     return (
-        <select onChange={(e) => handleChange(e)}>
+        <select onChange={(e) => handleChange(e)} className='options'>
             <option>Alfabeticamente</option>
             <option value= "asc">A - Z</option>
             <option value= "desc">Z - A</option>

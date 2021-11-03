@@ -36,6 +36,9 @@
     
 }
 
+.info{
+    min-width: 10em;
+}
 .info h4 {
     border-top: solid 1px #5f4920;
     border-bottom: solid 1px #5f4920;

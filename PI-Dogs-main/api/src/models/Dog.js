@@ -51,11 +51,6 @@ module.exports = (sequelize) => {
       allowNull: true,
     },
 
-    // temperament: {
-    //   type: DataTypes.STRING, 
-    //   allowNull: true,
-    // },
-
     origin: {
       type: DataTypes.STRING, 
       allowNull: true,

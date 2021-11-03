@@ -21,7 +21,7 @@ export default function Temperaments({pagina}){
 
     return (
         <div>
-            <select onChange={(e)=>{onInputChange(e)}} >
+            <select onChange={(e)=>{onInputChange(e)}} className='options'>
                 <option name='Temperamentos' key='a1'> Temperamentos </option>
 
                 {allTemperament && allTemperament.map((e) => (

@@ -1,0 +1,25 @@
+.busqueda {
+    border-style: none;
+    padding: 0.5em;
+    font-size: 1em;
+   
+    margin-right: 0.5em;
+    border-radius: 0.5em;
+    border: solid 2px #74d4b4;
+    
+}
+
+.botonSearch {
+    padding: 0.5em 0.6em;
+    border-style: none;
+    font-size: 1em;
+    border-radius: 0.5em;
+    background: #74d4b4 ;
+    color: white;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+.contenedorSearch {
+    margin: 0.3em;
+    
+}

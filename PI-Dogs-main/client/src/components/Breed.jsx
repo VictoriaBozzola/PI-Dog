@@ -20,7 +20,7 @@ export default function Breed({pagina}){
 
     return (
         <div>
-                <select onChange={(e)=> handlefilterBreed(e)} >
+                <select onChange={(e)=> handlefilterBreed(e)} className='options'>
                    <option value ='all'> Todas las razas </option>
                    <option value ='exist'> Existente </option>
                    <option value = 'created'> Creada </option>
