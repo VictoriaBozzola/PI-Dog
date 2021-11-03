@@ -2,9 +2,10 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {addDog, getTemperaments} from '../actions/actions.js';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 export default function Create(){
+    const history = useHistory();
     const dispatch = useDispatch();
     const temperaments = useSelector((state) => state.temperaments);
     const[form, setForm] = useState({
@@ -38,17 +39,33 @@ export default function Create(){
         })
     }
 
-    function onSubmit(e){
-        e.preventDefault();
-        dispatch(addDog(form))
-    }
-
     function deleteTemp(e){
+        e.preventDefault();
         setForm({
             ...form,
             temperament: form.temperament.filter(t => t !== e.target.value)
         })
     }
+
+    function onSubmit(e){
+        e.preventDefault();
+        dispatch(addDog(form));
+        alert("your dog was successfully created");
+        setForm({
+            name:'',
+            life_span:'',
+            height_min:'',
+            height_max:'',
+            weight_min:'',
+            weight_max:'',
+            image:'',
+            origin:'',
+            temperament:[]
+        })
+        history.push("/home")
+    }
+
+    
 
     
 
@@ -57,47 +74,47 @@ export default function Create(){
             <Link to='/home'><button>Volver</button></Link>
             <h1>Creá una raza nueva</h1>
 
-            <form onSubmit={onSubmit}>
+            <form onSubmit={(e)=>onSubmit(e)}>
                 <div>
                     <label>Nombre </label>   {/* poner p para que quede arriba del input */}
-                    <input type='text' value={form.name} name='name' onChange={handleChange}></input>
+                    <input type='text' value={form.name} name='name' onChange={(e)=>handleChange(e)}></input>
                 </div>
                 <div>
                     <label>Origen </label>
-                    <input type='text' value={form.origin} name='origin' onChange={handleChange}></input>
+                    <input type='text' value={form.origin} name='origin' onChange={(e)=>handleChange(e)}></input>
                 </div>
                 <div>
                     <label>imagen </label>
-                    <input type='text' value={form.image} name='image' onChange={handleChange}></input>
+                    <input type='text' value={form.image} name='image' onChange={(e)=>handleChange(e)}></input>
                 </div>
                 <div>
                     <label>Vida </label>
-                    <input type='number' value={form.life_span} name='life_span' onChange={handleChange}></input>
+                    <input type='number' value={form.life_span} name='life_span' onChange={(e)=>handleChange(e)}></input>
                 </div>
                 <div>
                     <label>Peso </label>
-                    <input type='text' placeholder='Minimo' value={form.weight} name='weight_min' onChange={handleChange}></input>
-                    <input type='text' placeholder='Máximo' value={form.weight} name='weight_max' onChange={handleChange}></input>
+                    <input type='text' placeholder='Minimo' value={form.weight_min} name='weight_min' onChange={(e)=>handleChange(e)}></input>
+                    <input type='text' placeholder='Máximo' value={form.weight_max} name='weight_max' onChange={(e)=>handleChange(e)}></input>
                 </div>
                 <div>
                     <label>Altura </label>
-                    <input type='text' placeholder='Minima' value={form.weight} name='height_min' onChange={handleChange}></input>
-                    <input type='text' placeholder='Máxima' value={form.weight} name='height_max' onChange={handleChange}></input>
+                    <input type='text' placeholder='Minima' value={form.height_min} name='height_min' onChange={(e)=>handleChange(e)}></input>
+                    <input type='text' placeholder='Máxima' value={form.height_max} name='height_max' onChange={(e)=>handleChange(e)}></input>
                 </div>
                 <div>
                     <label>Temperamento/s </label>
-                    <select onChange={handleSelect}>
+                    <select onChange={(e)=>handleSelect(e)}>
                         {temperaments?.map(t => (
                             <option key={t.id} value={t.name}> {t.name} </option>
                         ))}
                     </select>
                     <div>
-                        {form.temperament.map(e =>(
-                                <button value={e} onClick={deleteTemp}> {e} </button>
+                        {form.temperament.map((e, i)=>(
+                                <button key={i} value={e} onClick={(e)=>deleteTemp(e)}> {e} </button>
                         ))} 
                     </div>
                 </div>
-                <button type='submit' onSubmit={onSubmit}> Crear </button>
+                <button type='submit' onSubmit={(e)=>onSubmit(e)}> Crear </button>
 
             </form>
         </div>

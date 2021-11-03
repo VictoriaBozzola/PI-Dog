@@ -26,7 +26,15 @@ const getApi = async () => {
 
  const getDB = async () => {
     return await Dog.findAll({
-        includes: Temperament,
+        include: {
+            model: Temperament,
+            attribute:{
+                include: ['name']
+            } ,
+            through: {
+                attribute:[]
+            }
+        }
     });
  }
 
@@ -46,7 +54,7 @@ router.get('/', async (req, res, next) => {
         const api = await getApi();
         const nameQuery = await api.filter(data => data.name.toLowerCase().includes(name.toLowerCase()))
         const db = await Dog.findAll({
-            includes: Temperament,  //para mas adelnate cuando conecte todo
+            include: Temperament,  //para mas adelnate cuando conecte todo
             where: {
                 name: {
                     [Op.iLike]: '%' + name + '%'
@@ -69,10 +77,10 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     try{
-        const {name, height_min, height_max, weight_min, weight_max, life_span, image, origin,temperament} = req.body;
+        let {name, height_min, height_max, weight_min, 
+            weight_max, life_span, image, origin, temperament, createdInDb} = req.body;
         const createDog = await Dog.create({
 
-                
                 name,
                 life_span,
                 height_min,
@@ -81,9 +89,27 @@ router.post('/', async (req, res, next) => {
                 weight_max,
                 image,
                 origin,
-                temperament
+                createdInDb,
+                
             
         })
+        //los temperamentos se pasa a parte 
+
+
+        temperament.map(async e => {
+            const temperamentDB = await Temperament.findAll({
+                where: {
+                    name : e
+                },
+                include: [Dog]
+            })
+            createDog.addTemperament(temperamentDB)
+        })
+
+        
+
+
+        //se lo agrego al personaje creado
         res.send(createDog)
     } catch (error) {
         next(error);

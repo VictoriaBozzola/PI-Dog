@@ -17,12 +17,12 @@ export default function Home() {
    
     const dispatch = useDispatch();
     const allDogs = useSelector((state) => state.dogs);
-    console.log('allDogs',allDogs);
+    
     
     useEffect(() => {           //despacha la acción, espera la info 
         dispatch(getDogs()); 
         dispatch(getTemperaments());
-        console.log('DENTRO DEL USE', allDogs)
+        
         
     }, [])
 
@@ -73,11 +73,11 @@ export default function Home() {
             <div className='contenedorcard'>
             {    
                 totalPageDog?.map(elemento => {
-                   
+                
                 return (
                     
                     <Card key={elemento.id} id={elemento.id} name={elemento.name} image={elemento.image} 
-                    temperament={elemento.temperament} weight={elemento.weight? elemento.weight[0] : elemento.weight_min}/>
+                    temperament={elemento.temperament? elemento.temperament: elemento.temperaments } weight={elemento.weight? elemento.weight[0] : elemento.weight_min}/>
                 
                )})
             }
