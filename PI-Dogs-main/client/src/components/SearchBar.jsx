@@ -2,11 +2,10 @@ import React from 'react';
 import {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {getName} from '../actions/actions.js'
-import {useHistory} from 'react-router-dom';
 import './SearchBar.css';
 
 export default function SearchBar({pagina}){
-    const history = useHistory();
+    
     const [search, setSearch] = useState('');
     const dispatch = useDispatch();
 

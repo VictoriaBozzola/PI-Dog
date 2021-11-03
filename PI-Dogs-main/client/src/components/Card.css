@@ -32,7 +32,8 @@
     border-radius: 10em;
     border: solid 2px white;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.329);
-     
+    min-width: 200px;
+    min-height: 200px;
     
 }
 

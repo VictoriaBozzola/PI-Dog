@@ -24,8 +24,9 @@ export function addDog(payload){
 }
 
 export function getDogDetails (id){
+    console.log(id)
     return async function (dispatch){
-        const infoDetails = await axios.get('http://localhost:3001/api/dogs/' + id);
+        const infoDetails = await axios.get('http://localhost:3001/api/dogs/'+ id);
         dispatch({
             type: GET_DETAILS,
             payload: infoDetails.data,

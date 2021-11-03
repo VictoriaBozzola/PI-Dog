@@ -47,6 +47,8 @@ function validate(form){
     return error;
 }
 
+
+
 export default function Create(){
     const history = useHistory();
     const dispatch = useDispatch();
@@ -140,7 +142,7 @@ export default function Create(){
                     <input type='text' value={form.image} name='image' onChange={(e)=>handleChange(e)}></input>
                 </div>
                 <div>
-                    <label>Vida </label>
+                    <label>Años de vida </label>
                     <input type='number' value={form.life_span} name='life_span' onChange={(e)=>handleChange(e)}></input>
                 </div>
                 <div>

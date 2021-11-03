@@ -85,10 +85,12 @@ export default function Home() {
                 return (
                     
                     <Card key={elemento.id} id={elemento.id} name={elemento.name} image={elemento.image} 
-                    temperament={elemento.temperament? elemento.temperament: elemento.temperaments } weight={elemento.weight? elemento.weight[0] : elemento.weight_min}/>
-                
+                    temperament={elemento.temperament? elemento.temperament: elemento.temperaments } 
+                    weight={elemento.weight? elemento.weight[0] : elemento.weight_min}/>
+                    
                )})
             }
+            
             </div>
         </div>
     )

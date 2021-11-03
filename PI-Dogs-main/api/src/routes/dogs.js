@@ -38,6 +38,13 @@ const getApi = async () => {
     });
  }
 
+ const getAllDogs = async ()=>{
+    let dogMap = await getApi();
+    const dbMap = await getDB();
+    const allMap = await dogMap.concat(dbMap);
+    return allMap;
+}
+
 router.get('/', async (req, res, next) => {
     
    try {
@@ -121,11 +128,13 @@ router.post('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     try{
     const {id} = req.params;
-    
+    const dogsTotal = await getAllDogs();
     if(typeof id === 'string' && id.length > 8){
+    
+        let filter = dogsTotal.filter(el => el.id == id)
         
-        const db = await Dog.findByPk(id);
-        res.send( db );
+        res.send( filter );
+
 
     } else {
 
@@ -139,6 +148,7 @@ router.get('/:id', async (req, res, next) => {
                 height: response.height.metric,
                 temperament: response.temperament,
                 origin: response.origin,
+                image: response.image.url
             }
     }); 
 
