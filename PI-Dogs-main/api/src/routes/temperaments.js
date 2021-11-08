@@ -59,7 +59,7 @@ router.get('/', async (req, res, next) => {
         });
         
         let showDB = await Temperament.findAll();
-        res.send(showDB);
+        res.status(200).send(showDB);
 
     }catch (error){
         next(error)

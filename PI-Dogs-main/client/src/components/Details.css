@@ -1,0 +1,84 @@
+.contenedorDetails{
+    display:flex;
+    
+    margin: 3em auto;
+
+}
+.imgDetails {
+    border-radius: 1em; 
+    border: solid 1px white;
+    margin-top: 1em ;
+    margin-left: 4em;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.226);
+}
+
+.pesoAltura{
+    display: flex;
+    
+    
+}
+
+.vidaOrigen{
+    display: flex;
+    
+}
+
+.todoDetails{
+    margin: 1em auto;
+    padding: 1em;
+    background: linear-gradient(-90deg, rgba(255, 255, 255, 0.801), rgba(255, 255, 255, 0.212));
+    border-radius: 1em;
+    border: solid 1px white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.226);
+    
+    min-width: 400px;
+    max-width: 400px;
+}
+
+.detalle{
+    margin: 0.5em auto;
+    min-width: 200px;
+    
+}
+
+.detalle h4{
+    font-size: 1.2em;
+    color: #5f4920;
+    font-family: 'Red Hat Display', sans-serif;
+    padding: 0.2em;
+    margin-top: 0em ;
+    margin-bottom: 0em;
+    
+    
+}
+
+.tituloDetails{
+    border-top: solid 2px #5f4920;
+    border-bottom: solid 2px #5f4920;
+    padding: 0.2em;
+    margin-top: 0em;
+    
+
+}
+
+.botonDetails{
+    border-style: none;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    font-size: 1em;
+    background: #45c097;
+    color: white;
+    transition: all ease-in .5s;
+   
+}
+
+.botonDetails:hover{
+    background: #74d4b4;
+    font-size: 1.2em
+}
+
+
+.h1details{
+    font-size:4em;
+    margin: 0em;
+}

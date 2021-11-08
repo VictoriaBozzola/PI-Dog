@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {addDog, getTemperaments} from '../actions/actions.js';
 import {Link, useHistory} from 'react-router-dom';
+import './Create.css';
 
 function validate(form){
     let error ={};
@@ -122,60 +123,80 @@ export default function Create(){
     
 
     return (
-        <div>
-            <Link to='/home'><button>Volver</button></Link>
-            <h1>Creá una raza nueva</h1>
+        <div className='contenedorCreateFoto'> 
+            
+            <h1 className='tituloCreate'>Creá una raza</h1>
+            <hr/>
 
             <form onSubmit={(e)=>onSubmit(e)}>
-                <div>
-                    <label>Nombre </label>   {/* poner p para que quede arriba del input */}
-                    <input type='text' value={form.name} name='name' onChange={(e)=>handleChange(e)}></input>
-                    { error.name && ( <p> {error.name} </p>)}
-                </div>
-                <div>
-                    <label>Origen </label>
-                    <input type='text' value={form.origin} name='origin' onChange={(e)=>handleChange(e)}></input>
-                    
-                </div>
-                <div>
-                    <label>imagen </label>
-                    <input type='text' value={form.image} name='image' onChange={(e)=>handleChange(e)}></input>
-                </div>
-                <div>
-                    <label>Años de vida </label>
-                    <input type='number' value={form.life_span} name='life_span' onChange={(e)=>handleChange(e)}></input>
-                </div>
-                <div>
-                    <label>Peso </label>
-                    <input type='text' placeholder='Minimo' value={form.weight_min} name='weight_min' onChange={(e)=>handleChange(e)}></input>
-                    <input type='text' placeholder='Máximo' value={form.weight_max} name='weight_max' onChange={(e)=>handleChange(e)}></input>
-                    { error.weight_min ? ( <p> {error.weight_min} </p>) : ( <p> {error.weight_max} </p>)}
-
-                </div>
-                <div>
-                    <label>Altura </label>
-                    <input type='text' placeholder='Minima' value={form.height_min} name='height_min' onChange={(e)=>handleChange(e)}></input>
-                    <input type='text' placeholder='Máxima' value={form.height_max} name='height_max' onChange={(e)=>handleChange(e)}></input>
-                    { error.height_min?( <p> {error.height_min} </p>) : ( <p> {error.height_max} </p>)}
-
-                </div>
-                <div>
-                    <label>Temperamento/s </label>
-                    <select onChange={(e)=>handleSelectTemp(e)}>
-                        <option  value='temp'> Temperamentos </option>
-                        {temperaments?.map(t => (
-                            <option key={t.id} value={t.name}> {t.name} </option>
-                        ))}
-                    </select>
-                    <div>
-                        {form.temperament.map((e, i)=>(
-                                <button key={i} value={e} onClick={(e)=>deleteTemp(e)}> {e} </button>
-                        ))} 
+                <div className='contenedorForm'>
+                    <div className='contenedoresCreate'>
+                        <div>
+                            <label className='label'>Nombre </label>  
+                            <input className='input' type='text' value={form.name} name='name' onChange={(e)=>handleChange(e)} required></input>
+                            { error.name && ( <p className='error'> {error.name} </p>)}
+                        </div>
+                        <div>
+                            <label className='label'>Origen </label>
+                            <input className='input' type='text' value={form.origin} name='origin' onChange={(e)=>handleChange(e)}></input>
+                            
+                        </div>
                     </div>
-                   
-                </div>
-                <button type='submit' onSubmit={(e)=>onSubmit(e)}> Crear </button>
+                    <div className='contenedoresCreate'>
+                        <div>
+                            <label className='label'>imagen </label>
+                            <input className='input' type='text' value={form.image} name='image' onChange={(e)=>handleChange(e)}></input>
+                        </div>
+                        <div>
+                            <label className='label'>Años de vida </label>
+                            <input className='input' type='number' value={form.life_span} name='life_span' 
+                            onChange={(e)=>handleChange(e)} ></input>
+                        </div>
+                    </div>
+                    <div className='contenedoresCreate'>
+                        <div>
+                            <label className='label'>Peso </label>
+                            <input className='input' type='text' placeholder='Minimo' value={form.weight_min} 
+                            name='weight_min' onChange={(e)=>handleChange(e)} required></input>
+                            <input className='input' type='text' placeholder='Máximo' value={form.weight_max} 
+                            name='weight_max' onChange={(e)=>handleChange(e)} required></input>
+                            { error.weight_min ? ( <p className='error'> {error.weight_min} </p>) 
+                            : ( <p className='error'> {error.weight_max} </p>)}
 
+                        </div>
+                    </div>
+                    <div className='contenedoresCreate'>
+                        <div>
+                            <label className='label'>Altura </label>
+                            <input className='input' type='text' placeholder='Minima' value={form.height_min} 
+                            name='height_min' onChange={(e)=>handleChange(e)} required></input>
+                            <input className='input' type='text' placeholder='Máxima' value={form.height_max} 
+                            name='height_max' onChange={(e)=>handleChange(e)} required></input>
+                            { error.height_min?( <p className='error'> {error.height_min} </p>) 
+                            : ( <p className='error'> {error.height_max} </p>)}
+
+                        </div>
+                    </div>
+                    <div className='contenedorTemps'>
+                        <label className='label'>Temperamento/s </label>
+                        <select className='selectCreate' onChange={(e)=>handleSelectTemp(e)}>
+                            <option  value='temp'> Temperamentos </option>
+                            {temperaments?.map(t => (
+                                <option key={t.id} value={t.name}> {t.name} </option>
+                            ))}
+                        </select>
+                        <div>
+                            {form.temperament.map((e, i)=>(
+                                    <button className='botonesTemps' key={i} value={e} onClick={(e)=>deleteTemp(e)}> {e} </button>
+                            ))} 
+                        </div>
+                    
+                    </div>
+                    <div className='botonesForm'>
+                        <Link to='/home' ><button className='botonVolver'>Volver</button></Link>
+                        <button className='botonCrear' type='submit' onSubmit={(e)=>onSubmit(e)}> Crear </button>
+                    </div>
+                </div>
             </form>
         </div>
 

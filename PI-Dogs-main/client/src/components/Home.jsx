@@ -55,7 +55,9 @@ export default function Home() {
     return (
         <div className='contenedorAll'>
             <div className='navegador'>
-                <h1>DOGGER</h1>
+                <Link to='/' className='link'>
+                <h1 className='dogger'>DOGGER</h1>
+                </Link>
                 <div className='searchBar'>
                     <SearchBar pagina={setActualPage}/>
                 </div>
@@ -64,7 +66,7 @@ export default function Home() {
             
             <div className='filtros'>
                 <div className='botonesFiltro'>
-                    <Link to='/create'><button className='crear link'>Crear raza</button></Link>
+                    <Link to='/create' className='link'><button className='crear'>Crear raza</button></Link>
                     <button onClick={(e) => {handleClick(e)}} className='crear'> Todos </button>
                 </div>
                 <div>

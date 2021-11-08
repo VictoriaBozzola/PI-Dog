@@ -2,7 +2,7 @@
     border-style: none;
     padding: 0.5em;
     font-size: 1em;
-   
+    min-width: 20em;
     margin-right: 0.5em;
     border-radius: 0.5em;
     border: solid 2px #74d4b4;
@@ -17,8 +17,14 @@
     background: #74d4b4 ;
     color: white;
     font-family: 'Red Hat Display', sans-serif;
+    transition: all ease-in .1s;
 }
 
+.botonSearch:active{
+    background: #ffffff ;
+    color: #299b75;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.226);
+}
 .contenedorSearch {
     margin: 0.3em;
     

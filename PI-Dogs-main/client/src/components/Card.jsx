@@ -17,7 +17,7 @@ export default function Card({name, image, temperament, weight, id}){
                 <p className='temperamentos'> {!Array.isArray(temperament)? temperament :  temperament.map(e => e.name).join(', ')}</p>
                
                 <Link to={`/${id}`}>
-                <button> Más Info </button>
+                <button className='masInfo'> Más Info </button>
                 </Link>
             </div>
         </div>

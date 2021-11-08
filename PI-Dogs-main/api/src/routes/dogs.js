@@ -53,7 +53,7 @@ router.get('/', async (req, res, next) => {
         const api = await getApi();
         const db = await getDB();
         const infoTotal = api.concat(db);
-        res.send(infoTotal.length? infoTotal : 'Api not found')
+        res.status(200).send(infoTotal.length? infoTotal : 'Api not found')
     }   
     
     if(name) {
@@ -69,7 +69,7 @@ router.get('/', async (req, res, next) => {
             }
         })
         const infoTotal = nameQuery.concat(db);
-        res.send(infoTotal.length? infoTotal : 'Name dog not found')
+        res.status(200).send(infoTotal.length? infoTotal : 'Name dog not found')
          
         
     } 
@@ -113,11 +113,9 @@ router.post('/', async (req, res, next) => {
             createDog.addTemperament(temperamentDB)
         })
 
-        
-
-
+    
         //se lo agrego al personaje creado
-        res.send(createDog)
+        res.status(200).send(createDog)
     } catch (error) {
         next(error);
     }
@@ -133,7 +131,7 @@ router.get('/:id', async (req, res, next) => {
     
         let filter = dogsTotal.filter(el => el.id == id)
         
-        res.send( filter );
+        res.status(200).send( filter );
 
 
     } else {
@@ -155,7 +153,7 @@ router.get('/:id', async (req, res, next) => {
     //hay que traerlos de la base de datos los temperamentos guardados?
     const find = infoApi.find(data => data.id === Number(id));
     
-    res.send(find? find : 'Id API not found')
+    res.status(200).send(find)
 
     }
     

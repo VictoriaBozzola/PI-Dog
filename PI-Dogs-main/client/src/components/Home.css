@@ -5,8 +5,9 @@
     margin:1em auto;
     max-width: 1000px;
     border-radius: 0.5em;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.384);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.267);
     font-family: 'Red Hat Display', sans-serif;
+    border: solid 1px white;
 
 }
 
@@ -27,13 +28,12 @@
     padding:0.5em;
     display: flex;
     justify-content: center;
+    border-bottom: solid 2px #ffffff;
+    border-top: solid 2px #ffffff;
     
 }
 
-.navegador h1{
-    margin: 0em;
-    float: left;
-}
+
 
 .crear{
     border-style: none;
@@ -44,9 +44,14 @@
     color: white;
     display: block;
     margin: 0.5em ;
-    min-width: 6em;
+    min-width: 8em;
     font-family: 'Red Hat Display', sans-serif;
-    
+    text-decoration: none;
+    transition: all ease-in .5s;
+}
+
+.crear:hover{
+    background: #79bba5;
 }
 
 .link {
@@ -63,3 +68,16 @@
     display: flex;
 }
 
+.searchBar {
+    margin-top: 0.7em;
+    margin-left: 19em;
+    
+}
+
+
+.dogger{
+    font-size: 3em;
+    margin: 0em;
+    color:#5f4920d3;
+    text-decoration: none;
+}

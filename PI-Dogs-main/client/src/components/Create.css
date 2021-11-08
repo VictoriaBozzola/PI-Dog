@@ -1,0 +1,130 @@
+.contenedorCreateFoto {
+    background-image: url('../img/mDP.jpg');
+    background-attachment: fixed;
+    /* padding: 1em; */
+    margin:1em auto;
+    max-width: 1000px;
+    border-radius: 1em;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.384);
+    font-family: 'Red Hat Display', sans-serif;
+    border: solid 1px white;
+
+}
+
+.tituloCreate {
+    color: #5f4920;
+    font-size: 3.5em;
+    margin:0.1em;
+    
+}
+
+.label {
+    display:block;
+    text-align: left;
+    font-size: 1em;
+    margin: 0em 2em;
+}
+
+.contenedoresCreate{
+    display:flex;
+}
+
+.contenedorForm{
+    max-width: 700px;
+    margin: 2em auto;
+    font-family: 'Red Hat Display', sans-serif;
+    
+}
+
+.input {
+    border-style: none;
+    background: rgba(255, 255, 255, 0.24);
+    border-bottom: solid 1px #5f4920;
+    font-size: 1em;
+    margin: 1em 2em;
+    padding: 0.5em;
+    min-width: 16em;
+    outline: none;
+}
+
+hr {
+    height: 2px;
+    width: 15%;
+    border-style: none;
+    background: #5f4920
+    
+}
+
+.selectCreate{
+    border-style: none;
+    background: rgba(255, 255, 255, 0.24);
+    border-bottom: solid 1px #5f4920;
+    font-size: 1em;
+    margin: 1em 2em;
+    padding: 0.5em;
+    min-width: 16em;
+    outline: none;
+    color: rgba(0, 0, 0, 0.671);
+   
+
+}
+
+.contenedorTemps{
+    text-align: left;
+    margin-bottom: 1em;
+    
+}
+
+.botonesTemps{
+    border-style: none;
+    font-size: 1em;
+    margin: 0.5em 1em;
+    padding: 0.5em;
+    background-color: #5f4920b2;
+    
+    color: white;
+    font-family: 'Red Hat Display', sans-serif;
+    border-radius: 0.8em;
+    transition: all ease-in .4s;
+}
+
+.botonesTemps:hover{
+    background: #5fcaa6e3;
+}
+
+.botonVolver{
+    border-style: none;
+    background: #45c097;
+    color: white;
+    font-size: 1em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    margin: 1em;
+    transition: all ease-in .5s;
+}
+
+.botonVolver:hover{
+    background: #74d4b4;
+    font-size: 1.2em
+}
+
+.botonCrear {
+    border-style: none;
+    background: #45c097;
+    color: white;
+    font-size: 1em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    margin: 1em;
+    transition: all ease-in .5s;
+}
+
+.botonCrear:hover{
+    background: #74d4b4;
+    font-size: 1.2em
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}
