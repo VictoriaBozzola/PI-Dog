@@ -11,7 +11,7 @@ export default function Details(props){
     const details = useSelector((state) => state.details);
     console.log('DETALLE', details)
     useEffect(() => {
-        dispatch(getDogDetails(props.match.params.id))  //para pasarle el id de props y que haga la busqueda
+        dispatch(getDogDetails(props.match.params.id))  
     }, [dispatch])
 
     return (

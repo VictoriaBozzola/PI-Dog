@@ -61,7 +61,7 @@ router.get('/', async (req, res, next) => {
         const api = await getApi();
         const nameQuery = await api.filter(data => data.name.toLowerCase().includes(name.toLowerCase()))
         const db = await Dog.findAll({
-            include: Temperament,  //para mas adelnate cuando conecte todo
+            include: Temperament,
             where: {
                 name: {
                     [Op.iLike]: '%' + name + '%'
@@ -100,9 +100,7 @@ router.post('/', async (req, res, next) => {
                 
             
         })
-        //los temperamentos se pasa a parte 
-
-
+        
         temperament.map(async e => {
             const temperamentDB = await Temperament.findAll({
                 where: {
@@ -114,7 +112,7 @@ router.post('/', async (req, res, next) => {
         })
 
     
-        //se lo agrego al personaje creado
+        
         res.status(200).send(createDog)
     } catch (error) {
         next(error);
@@ -150,7 +148,7 @@ router.get('/:id', async (req, res, next) => {
             }
     }); 
 
-    //hay que traerlos de la base de datos los temperamentos guardados?
+    
     const find = infoApi.find(data => data.id === Number(id));
     
     res.status(200).send(find)

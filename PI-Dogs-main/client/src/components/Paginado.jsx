@@ -1,19 +1,19 @@
 import React from 'react';
 import './Paginado.css'
 
-export default function Paginado({dogxPage, allDogs, paginado}){
+export default function Paginado({dogxPage, allDogs, paginado, actualPage}){
     const numPaginas = [];
 
-    for(let i = 0; i <= Math.floor(allDogs/dogxPage); i++){   //todos mis perros dividido por los que quiero por pagina
-        numPaginas.push(i+1);                                 // cuantas paginas vamos a tener
+    for(let i = 0; i <= Math.floor(allDogs/dogxPage); i++){   
+        numPaginas.push(i+1);                                 
     }
 
-    return(     //renderiza los numeros del total de las paginas que va a tener 
+    return(    
         <nav>
             <ul className='ul'>
                 {numPaginas && numPaginas.map(num => (
                     <li key={num}>
-                    <a className='paginado' onClick={() => paginado(num)}><strong> {num} </strong></a>
+                    <a className={num === actualPage? 'actual' : 'paginado'} onClick={() => paginado(num)}><strong> {num} </strong></a>
                     </li>
                 ))}
             </ul>

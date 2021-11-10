@@ -19,27 +19,26 @@ export default function Home() {
     const allDogs = useSelector((state) => state.dogs);
     
     
-    useEffect(() => {           //despacha la acción, espera la info 
+    useEffect(() => {           
         dispatch(getDogs()); 
         dispatch(getTemperaments());
         
         
     }, [])
 
-    const [orden, setOrden] = useState('')          //lo creo aca porque es un estado que funciona solo en este modulo
-                                                    //y se lo paso como prop a orderAsDes 
+    // const [orden, setOrden] = useState('');          
 
-    const [actualPage, setActualPage] = useState(1);         //pagina actual, siempre comienza en la pagina 1
-    const [dogxPage, setDogPage] = useState(8);            //perros por pagina 
-    const iLastDog = actualPage * dogxPage;               // ultimo perro es igual a la cantidad de perros por pagina que hay
-    const iFirstDog = iLastDog - dogxPage;                 // primer perro es igual al ultimo menos la cantidad de perros por pagina
+    const [actualPage, setActualPage] = useState(1);         
+    const [dogxPage, setDogPage] = useState(8);            
+    const iLastDog = actualPage * dogxPage;               
+    const iFirstDog = iLastDog - dogxPage;              
     const totalPageDog = allDogs?.slice(iFirstDog, iLastDog);
     const length = allDogs?.length;
     
     
     
 
-    //para ir al numero de pagina que queramos
+    
     const paginado = (pageNumber) => {
         setActualPage(pageNumber);
     }
@@ -47,7 +46,8 @@ export default function Home() {
 
     function handleClick(e){
         e.preventDefault();
-        dispatch(getDogs()); //para que vuelva al get principal que te trae todos los personajes
+        dispatch(getDogs()); 
+        
     }
 
     
@@ -70,8 +70,8 @@ export default function Home() {
                     <button onClick={(e) => {handleClick(e)}} className='crear'> Todos </button>
                 </div>
                 <div>
-                    <OrderAlf pagina={setActualPage} set={setOrden}/>
-                    <OrderPeso pagina={setActualPage} set={setOrden} />
+                    <OrderAlf pagina={setActualPage} />
+                    <OrderPeso pagina={setActualPage}  />
                     <div className='dosFiltros'>
                         <Temperaments pagina={setActualPage}/>
                         <Breed pagina={setActualPage}/>
@@ -79,7 +79,7 @@ export default function Home() {
                 </div>
             </div>
             <Paginado dogxPage={dogxPage} allDogs={length} 
-            paginado={paginado}/>   
+            paginado={paginado} actualPage={actualPage}/>   
             <div className='contenedorcard'>
             {    
                 totalPageDog?.map(elemento => {

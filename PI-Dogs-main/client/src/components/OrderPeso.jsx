@@ -4,7 +4,7 @@ import {orderByWeight} from '../actions/actions.js'
 import './Filtros.css'
 
 
-export default function Order({pagina, set}) {
+export default function Order({pagina}) {
     
     const dispatch = useDispatch();
     
@@ -13,7 +13,7 @@ export default function Order({pagina, set}) {
         e.preventDefault();
         dispatch(orderByWeight(e.target.value));
         pagina(1);
-        set(`Ordenado ${e.target.value}`);
+        
     }
 
     

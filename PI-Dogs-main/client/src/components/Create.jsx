@@ -103,7 +103,7 @@ export default function Create(){
     function onSubmit(e){
         e.preventDefault();
         dispatch(addDog(form));
-        alert("your dog was successfully created");
+        alert("¡Tu perro fue creado con éxito!");
         setForm({
             name:'',
             life_span:'',

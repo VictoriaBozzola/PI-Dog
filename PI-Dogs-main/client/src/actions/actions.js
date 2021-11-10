@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {ADD_DOG, ALL_DOGS, GET_DETAILS, GET_TEMPERAMENTS, GET_QUERY, FILTER_TEMP, FILTER_BREED,
+import {ALL_DOGS, GET_DETAILS, GET_TEMPERAMENTS, GET_QUERY, FILTER_TEMP, FILTER_BREED,
 ORDER_WEIGHT, ORDER_AS} from './types';
 
 
@@ -24,7 +24,6 @@ export function addDog(payload){
 }
 
 export function getDogDetails (id){
-    console.log(id)
     return async function (dispatch){
         const infoDetails = await axios.get('http://localhost:3001/api/dogs/'+ id);
         dispatch({

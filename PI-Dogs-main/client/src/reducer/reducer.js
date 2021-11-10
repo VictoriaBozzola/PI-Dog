@@ -25,8 +25,8 @@ const initialState = {
                 ...state,
                 details: action.payload
             }
-        case ADD_DOG:    //no tiene el type pero lo agarra por la ruta y devuelve todo el estado (de api y db )
-            return {     //en caso de no matchear con esto va al default
+        case ADD_DOG:   
+            return {     
                 ...state, 
             }
         case GET_TEMPERAMENTS: 
@@ -40,8 +40,7 @@ const initialState = {
                 dogs: action.payload, 
             }
         case FILTER_TEMP: 
-            //sobre el nuevo array donde cargue a todos hago el filtro y se lo paso a dogs, para evitar que te haga filtros
-            //sobre filtros
+
             const filter = action.payload === 'Temperamentos' ? state.filtered : state.filtered?.filter(data => data.temperament?.includes(action.payload));
             return{
                 ...state,
@@ -82,7 +81,7 @@ const initialState = {
         case ORDER_WEIGHT:
             const isNan = state.dogs.filter(data => !isNaN(data.weight? data.weight[0] : data.weight_min))
             const orderW = action.payload === 'min'?
-            isNan.sort(function(a, b){     
+            isNan.sort(function(a, b){     //min
                 
                 if(parseInt(a.weight? a.weight[0] : a.weight_min) > parseInt(b.weight? b.weight[0]: b.weight_min)){ //min
                     return 1;
