@@ -12,14 +12,7 @@ const router = Router();
 router.use('/dogs', routeDog);
 router.use('/temperaments', routeTemperament);
 
-// let getApi = async () => {
-//     const urlApi = await axios.get('https://api.thedogapi.com/v1/breeds');
-//     const infoApi = await urlApi.map(response => {
-//         return {
 
-//         }
-//     })
-// }
 
 
 module.exports = router;

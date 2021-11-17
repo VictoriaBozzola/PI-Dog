@@ -6,5 +6,6 @@ export const GET_QUERY = 'GET_QUERY';
 export const FILTER_TEMP = 'FILTER_TEMP';
 export const FILTER_BREED = 'FILTER_BREED';
 export const ORDER_WEIGHT = 'ORDER_WEIGHT';
-export const ORDER_AS = 'ORDER_AS'
+export const ORDER_AS = 'ORDER_AS';
+export const ORDER_HEIGHT = 'ORDER_HEIGHT';
 

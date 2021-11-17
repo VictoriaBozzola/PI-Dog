@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {ALL_DOGS, GET_DETAILS, GET_TEMPERAMENTS, GET_QUERY, FILTER_TEMP, FILTER_BREED,
-ORDER_WEIGHT, ORDER_AS} from './types';
+ORDER_WEIGHT, ORDER_AS, ORDER_HEIGHT} from './types';
 
 
 
@@ -86,5 +86,6 @@ export function orderAs(value){
     }
 
 }
+
 
 

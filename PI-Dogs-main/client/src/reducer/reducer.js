@@ -1,5 +1,5 @@
 import {ADD_DOG, ALL_DOGS, GET_DETAILS, GET_TEMPERAMENTS, GET_QUERY, FILTER_TEMP, FILTER_BREED, 
-ORDER_WEIGHT, ORDER_AS} from '../actions/types.js';
+ORDER_WEIGHT, ORDER_AS, ORDER_HEIGHT} from '../actions/types.js';
 
 const initialState = {
     dogs:[], 
@@ -102,9 +102,10 @@ const initialState = {
                 })
             return{
                 ...state,
-                dogs: orderW,
+                dogs: action.payload == 'peso'? state.filtered : orderW,
             }
 
+           
         default:
             return {
                 state

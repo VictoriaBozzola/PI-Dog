@@ -1,6 +1,6 @@
 .contenedorDetails{
     display:flex;
-    
+    backdrop-filter: blur(10px);
     margin: 3em auto;
 
 }

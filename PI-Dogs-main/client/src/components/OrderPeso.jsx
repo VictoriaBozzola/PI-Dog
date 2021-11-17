@@ -21,10 +21,13 @@ export default function Order({pagina}) {
    
 
     return (
+        <div>
         <select onChange={(e) => handleSortWeight(e)} className='options'>
-            <option> Peso </option>
+            <option value = 'peso'> Peso </option>
             <option value ='min'> Peso minimo</option>
             <option value='max'> Peso máximo </option>
         </select>
+
+        </div>
     );
 }

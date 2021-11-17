@@ -70,7 +70,7 @@ export default function Create(){
 
     useEffect(()=> {
         dispatch(getTemperaments())
-    }, []);
+    }, [dispatch]);
 
     function handleChange(e){
         setForm({
@@ -102,6 +102,9 @@ export default function Create(){
 
     function onSubmit(e){
         e.preventDefault();
+        if(error.name || error.height_max || error.height_min || error.weight_max || error.weight_min){
+            alert('Falta información')
+        }else {
         dispatch(addDog(form));
         alert("¡Tu perro fue creado con éxito!");
         setForm({
@@ -116,6 +119,7 @@ export default function Create(){
             temperament:[]
         })
         history.push("/home")
+        }
     }
 
     
@@ -133,7 +137,7 @@ export default function Create(){
                     <div className='contenedoresCreate'>
                         <div>
                             <label className='label'>Nombre </label>  
-                            <input className='input' type='text' value={form.name} name='name' onChange={(e)=>handleChange(e)} required></input>
+                            <input className='input' type='text' value={form.name} name='name' onChange={(e)=>handleChange(e)} ></input>
                             { error.name && ( <p className='error'> {error.name} </p>)}
                         </div>
                         <div>
@@ -157,9 +161,9 @@ export default function Create(){
                         <div>
                             <label className='label'>Peso </label>
                             <input className='input' type='text' placeholder='Minimo' value={form.weight_min} 
-                            name='weight_min' onChange={(e)=>handleChange(e)} required></input>
+                            name='weight_min' onChange={(e)=>handleChange(e)} ></input>
                             <input className='input' type='text' placeholder='Máximo' value={form.weight_max} 
-                            name='weight_max' onChange={(e)=>handleChange(e)} required></input>
+                            name='weight_max' onChange={(e)=>handleChange(e)} ></input>
                             { error.weight_min ? ( <p className='error'> {error.weight_min} </p>) 
                             : ( <p className='error'> {error.weight_max} </p>)}
 
@@ -169,9 +173,9 @@ export default function Create(){
                         <div>
                             <label className='label'>Altura </label>
                             <input className='input' type='text' placeholder='Minima' value={form.height_min} 
-                            name='height_min' onChange={(e)=>handleChange(e)} required></input>
+                            name='height_min' onChange={(e)=>handleChange(e)} ></input>
                             <input className='input' type='text' placeholder='Máxima' value={form.height_max} 
-                            name='height_max' onChange={(e)=>handleChange(e)} required></input>
+                            name='height_max' onChange={(e)=>handleChange(e)} ></input>
                             { error.height_min?( <p className='error'> {error.height_min} </p>) 
                             : ( <p className='error'> {error.height_max} </p>)}
 

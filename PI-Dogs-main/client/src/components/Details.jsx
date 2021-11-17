@@ -12,7 +12,7 @@ export default function Details(props){
     console.log('DETALLE', details)
     useEffect(() => {
         dispatch(getDogDetails(props.match.params.id))  
-    }, [dispatch])
+    }, [props.match.params.id, dispatch])
 
     return (
         <div className='contenedorAll'>

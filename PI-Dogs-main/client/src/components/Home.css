@@ -61,6 +61,7 @@
 .filtros{
     display:flex;
     justify-content: center;
+    margin-top: 1em;
     
 }
 
@@ -80,4 +81,8 @@
     margin: 0em;
     color:#5f4920d3;
     text-decoration: none;
+}
+
+.ordenamientos{
+    display:flex;
 }

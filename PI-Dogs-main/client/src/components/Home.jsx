@@ -6,11 +6,11 @@ import {getDogs, getTemperaments} from '../actions/actions.js'
 import Card from './Card';
 import SearchBar from './SearchBar';
 import Temperaments from "./Temperaments";
-import Paginado from './Paginado'
-import Breed from './Breed.jsx'
-import OrderAlf from './OrderAlf'
+import Paginado from './Paginado';
+import Breed from './Breed.jsx';
+import OrderAlf from './OrderAlf';
 import OrderPeso from './OrderPeso';
-import './Home.css'
+import './Home.css';
 
 
 export default function Home() {
@@ -24,9 +24,9 @@ export default function Home() {
         dispatch(getTemperaments());
         
         
-    }, [])
+    }, [dispatch])
 
-    // const [orden, setOrden] = useState('');          
+    const [orden, setOrden] = useState('');          
 
     const [actualPage, setActualPage] = useState(1);         
     const [dogxPage, setDogPage] = useState(8);            
@@ -70,16 +70,21 @@ export default function Home() {
                     <button onClick={(e) => {handleClick(e)}} className='crear'> Todos </button>
                 </div>
                 <div>
-                    <OrderAlf pagina={setActualPage} />
+                    <div className='ordenamientos'>
+                    <OrderAlf pagina={setActualPage} set={setOrden}/>
                     <OrderPeso pagina={setActualPage}  />
+                    </div>
                     <div className='dosFiltros'>
                         <Temperaments pagina={setActualPage}/>
                         <Breed pagina={setActualPage}/>
                     </div>
                 </div>
             </div>
+            
+
             <Paginado dogxPage={dogxPage} allDogs={length} 
-            paginado={paginado} actualPage={actualPage}/>   
+            paginado={paginado} actualPage={actualPage}/>  
+             
             <div className='contenedorcard'>
             {    
                 totalPageDog?.map(elemento => {
